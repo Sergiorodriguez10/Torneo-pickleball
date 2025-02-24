@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción Torneo de Pickleball</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        form { margin-bottom: 20px; }
+        table { width: 50%; margin: auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+    </style>
+</head>
+<body>
+    <h2>Inscripción Torneo de Pickleball</h2>
+    <form id="signupForm">
+        <input type="text" id="name" placeholder="Nombre" required>
+        <input type="text" id="partner" placeholder="Nombre de tu pareja" required>
+        <button type="submit">Inscribirse</button>
+    </form>
+    <h3>Lista de Inscritos</h3>
+    <table>
+        <thead>
+            <tr><th>Nombre</th><th>Pareja</th></tr>
+        </thead>
+        <tbody id="entries"></tbody>
+    </table>
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let partner = document.getElementById("partner").value;
+            let table = document.getElementById("entries");
+            let newRow = table.insertRow();
+            newRow.insertCell(0).textContent = name;
+            newRow.insertCell(1).textContent = partner;
+            document.getElementById("signupForm").reset();
+        });
+    </script>
+</body>
+</html>
